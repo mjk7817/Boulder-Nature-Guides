@@ -14,7 +14,10 @@ const db = new Client({
   }
 });
 
-db.connect();
+// display message on success message if successful
+db.on('connect', () => {
+  console.log('connection successful');
+});
 
 
 dotenv.config({ path: './.env'})
