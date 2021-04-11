@@ -34,11 +34,11 @@ exports.register = (req, res) => {
         if(error){
             console.log(error);
         }
-        if(results.length > 0){
-            return res.render('register', {
-                message: 'That email has been taken',
-                successMessage: ''
-            });
+//         if(results.length > 0){
+//             return res.render('register', {
+//                 message: 'That email has been taken',
+//                 successMessage: ''
+//             });
         } else if(!email_regex.test(String(email).toLowerCase())){
             return res.render('register', {
                 message: 'Invalid email',
