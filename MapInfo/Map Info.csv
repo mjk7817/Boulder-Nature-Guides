@@ -1,0 +1,106 @@
+Hiking trails,,,,,,,,,,
+Trailhead,Restroom,Park Fee,Bikes,Dogs,Location,,,,,
+Bobolink,No,No,Yes,Mixed (V&S and prohibited),"40.000235125376086, -105.21451812328385",,,,,
+Boulder Falls,No,No,No,Leash,"40.00536252781466, -105.40614997299188",,,,,
+Boulder Valley Ranch,Yes,No,Yes,Voice and Sight,"40.08000101506319, -105.26279258989399",,,,,
+Buckingham Park,Yes,No,No,Leash,"40.11123918476268, -105.30816306035054",,,,,
+Centennial Park,Yes,No,No,Voice and Sight,"40.02021082644039, -105.29791738733917",,,,,
+Chapman Drive,No,No,Yes,Leash,"40.00892966872375, -105.32530989661622",,,,,
+Chautauqua Meadow,Yes,No,No,Voice and sight,"39.996092683577075, -105.28621496035497",,,,,
+Cherryvale,No,No,Yes,Mixed (V&S and prohibited),"39.982896208535216, -105.21448851617642",,,,,
+Cottonwood,No,No,Yes,Mixed (V&S and prohibited),"40.04011567225499, -105.23697976035331",,,,,
+Crown Rock,No,Yes,No,Voice and Sight,"40.00193869459783, -105.29696481617573",,,,,
+Doudy Draw,Yes,Yes,Yes,Mixed (all 3),"39.938175172561856, -105.25657851802885",,,,,
+Dry Creek,Yes,No,Yes,Voice and Sight,"39.99984942368107, -105.19103308734",,,,,
+Eagle,No,No,Yes,Voice and Sight,"40.080432661119104, -105.23590469288878",,,,,
+Enchated Mesa,No,No,No,Mixed (V&S and prohibited),"39.9973533848808, -105.2802256045339",,,,,
+Flagstaff Summit,Yes,Yes,No,Mixed (all 3),"40.00151660957012, -105.29933651656641",,,,,
+Flatirons Vista,Yes,Yes,Yes, Mixed (all 3),"39.92275296002896, -105.2458540180294",,,,,
+Foothills,No,No,Mixed,Mixed (V&S and prohibited),"40.07054703353091, -105.28264288521758",,,,,
+Four-Mile Creek,No,No,Mixed,Leash,"40.06480074853652, -105.28776978718837",,,,,
+Greenbelt Plateau,No,Yes,Yes,Mixed(V&S and leash),"39.928889489304744, -105.23309144501434",,,,,
+Gregory Canyon,Yes,Yes,No ,Mixed(all 3),"39.99776783181083, -105.29276024686237",,,,,
+Interim Joder,No,No,Yes,Leash,"40.110304139666866, -105.28275206035056",,,,,
+Left Hand,No,No,Yes,Leash,"40.10534764978167, -105.26581401802234",,,,,
+Marshall Mesa,Yes,Yes,Yes,Voice and Sight,"39.95317284085238, -105.23134761802824",,,,,
+Mount Sanitas,Yes,No,No,Voice and Sight,"40.02738749605658, -105.30068277384632",,,,,
+NCAR,Yes,No,No,Mixed (V&s and Leash,"39.97794040800962, -105.27980990083337",,,,,
+Panorama Point,Yes,Yes,No,Voice and Sight,"40.00602810273934, -105.2926315709399",,,,,
+Realization Point,No,Yes,No,Voice and Sight,"39.99729796723958, -105.30895702813932",,,,,
+Sawhill Ponds,Yes,No,No,Mixed(V&S and leash),"40.03972125925047, -105.18518548733846",,,,,
+Settlers Park,No,No,No,Voice and Sight,"40.01491550594419, -105.29607604316037",,,,,
+South Boulder Creek,No,Yes,No,Mixed(all 3),"39.960391364776136, -105.23674440638608",,,,,
+South Mesa,Yes,Yes,No,Mixed (all 3),"39.93945559206923, -105.25638844501395",,,,,
+Teller Farms-South,Yes,No,Mixed,Mixed (V&S and leash),"40.02170418352434, -105.15861596644396",,,,,
+White Rocks,No,No,Mixed,No,"40.0621269374584, -105.13174653151658",,,,,
+Wonderland Lake,No,No,Mixed,Leash,"40.05093576785052, -105.2825005008306",,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+Parks and rec centers,,,,,,,,,,
+Park/Facility,Picnic Shelter,Playground,Restroom,Sports Field,Tennis,Basketball,Volleyball,RTD,Bike Trail,Location
+Admiral Areligh A Burke Park,x,,,,,,,,,"39.995039789336325, -105.23655675793312"
+Andrews Aboratoreum,,,,,,,,x,x,"40.012671862512036, -105.27730166035434"
+Ann Armstrong Park,,,,,,,,,,"40.02566711292958, -105.27503177199578"
+Arapahoe Ridge Park,x,x,,x,x,,,x,,"40.00933316763496, -105.23246451802609"
+Arrowwood Park,,x,,,,,,x,x,"40.002961466214494, -105.25193664501147"
+Aurora 7 Park,x,,,x,,,,x,x,"40.00551013226976, -105.24475681802618"
+Barker Park,,x,,,,,,x,x,"40.01972152232641, -105.275992371996"
+Beach Park,,x,,,,,,,,"40.012220922036754, -105.27695895560281"
+Bear Creek Park,,,,,,,,x,,"39.97884778939218, -105.26077425456708"
+Bill Bower Park,,x,,,,,,x,x,"39.98178921485027, -105.25626688919138"
+Boulder Resevoir,,x,,x,,,x,,x,"40.07391099661011, -105.23711910453102"
+Campbell Robertson Park,,,,,,,,x,,"40.01737454646853, -105.28942170453323"
+Canyon Pointe Park,,,,,,,,x,,"40.01539391627745, -105.28652476035427"
+Catalpa Park,,x,,,,,,,x,"40.0418419228853, -105.27272988733839"
+Central Park and Civic Area,,,,,,,,x,x,"40.01568756511576, -105.27843927384681"
+Chautauqua Park,x,x,x,,x,,,x,x,"39.999405050642366, -105.28143522966836"
+Christensen Park,x,x,,,,,,x,x,"40.03093455030062, -105.2392657431597"
+Columbine Park,,x,,x,x,,,,,"40.03314785488435, -105.26866980239821"
+Coot Lake,,,,x,,,,,x,"40.08604211974694, -105.20715224107033"
+Crestview Park,,,,,,,,,,"40.05336626061676, -105.27533610387704"
+Dakota Park,x,x,,,,,,x,x,"40.06619059471615, -105.28757688745813"
+East Boulder Community Center,,x,x,,,,,x,x,"39.99233429454641, -105.21997204316122"
+East Boulder Community Park,x,x,,x,x,x,x,x,x,"39.99220229621591, -105.21995698548965"
+East Mapleton Ballfields,x,x,x,,,,,x,x,"40.02542872513048, -105.25563208733904"
+Eaton Park,x,,,,,,,x,x,"40.064847722392244, -105.20123156721694"
+Eben G. Fine Park,x,x,x,,,,,x,x,"40.013195271559766, -105.29490344316042"
+Edward Sell Smith Park,,x,,,,,,,,"40.004603125134786, -105.28846254501137"
+Elks Park,x,,,x,,,,x,x,"40.04790767857579, -105.25968687199489"
+Elmer's Two Mile Park,x,x,,,,,,,x,"40.03487794385818, -105.26102798733864"
+Emma Gomez Martinez Park,,x,,,,x,,x,x,"40.0178525952937, -105.26813601617509"
+Evert Pierson's Kids Fishing Pond,,,,,,,,x,x,"40.01469216643419, -105.28573553151844"
+Flatirons Golf Course,,x,,x,,,,x,x,"40.01160247914889, -105.22036075665305"
+Foothills Community Garden,,,,,,,,x,x,"40.05481181327205, -105.2866754738453"
+Foothills Community Park,x,x,x,,,,,,,"40.05695510122227, -105.28787041247229"
+Fortune Park,,,,,,,,,x,"40.0151810166364, -105.28990354501101"
+Frederick Law Olmsted Jr Park,,,,,x,,x,x,x,"40.03260589125244, -105.28056824315968"
+Gerald Stazio Ballfields,x,x,x,x,,,,,x,"40.02338308263974, -105.21272673151807"
+Greenleaf Park,,,x,,,x,,x,x,"40.021894036046795, -105.26379695453302"
+Harlow Platts Community Park,x,x,,x,x,,,x,x,"39.97476892836486, -105.24850858549028"
+Holiday Park,,x,,,,,,x,x,"40.05976869512371, -105.27923184500925"
+Howard Heuston Park,,x,,,,x,,,,"40.03338705974661, -105.24801255850286"
+Keewaydin Meadows Park,x,x,,,x,,,x,x,"39.99305361088058, -105.22847050268344"
+Martin Park,x,x,,x,x,x,,x,x,"39.98913324135567, -105.24971618548975"
+Maxwell Lake Park,,,,,,,,,x,"40.04170972328337, -105.2875350315174"
+Meadow Glen Park,,x,,,,x,,,x,"40.00676882848165, -105.22153283151874"
+Melody Park,x,x,,,,,,,,"40.04052488780117, -105.27788041802484"
+North Boulder Park,x,x,x,x,,x,,,,"40.02771269550827, -105.28643430083144"
+North Boulder Recreation Center,,,x,,,,,x,x,"40.0325064171567, -105.28038517199546"
+Palo Central Park,,,,,,,,,x,"40.04487843344396, -105.24983420268147"
+Palo East,,x,,,,,,x,x,"40.04635788287066, -105.24984337569627"
+Palo North,,,,,x,,,x,x,"40.048074678112954, -105.25431588918876"
+Parkside Park,x,x,,,,x,,,,"40.038788209147675, -105.26441586800615"
+Pearl Street Mall,,,x,,,,,x,x,"40.01832234395769, -105.2793659738467"
+Pineview Park,x,x,,,,,,,,"40.038568419610264, -105.2745232026817"
+Pleasent View Park,,,x,x,,,,x,x,"40.04236672159987, -105.24720273120764"
+Salberg Park,x,x,x,,,x,,x,,"40.03130617443956, -105.27277698548806"
+Scott Carpenter Park and Pool,x,x,x,x,,,,x,x,"40.011868674275036, -105.25488234501115"
+Shanahan Ridge Park,,x,,,,,,x,,"39.96556100024061, -105.25192131432648"
+South Boulder Recreation Center,,,x,,,,,x,x,"39.97484997182543, -105.24864854501253"
+Spruce Pool,,,x,,,,,x,,"40.021349784591415, -105.26788202966755"
+Tantra Park,x,x,,x,,,,,x,"39.98016666673306, -105.24041122967658"
+Tom Watson Park,,x,,x,x,x,x,,,"40.08607073910712, -105.20654866035146"
+Valmont City Park,x,x,x,x,,,,x,x,"40.02881916210251, -105.23607361802533"
+Violet Park,,,,,,,,x,x,"40.05520828262219, -105.27736781617365"
+Wonderland Lake Park,x,x,,,,,,,x,"40.04871667633385, -105.29015771802453"
