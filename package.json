@@ -2,7 +2,7 @@
   "name": "3308proj",
   "version": "1.0.0",
   "description": "Boulder Nature Guides:",
-  "main": "index.js",
+  "main": "index.ejs",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
