@@ -1,0 +1,131 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+    <link rel="stylesheet" href="map.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+
+    
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <img src="logo.png" class="background" alt="">
+
+            <ul class="menu">
+                <li><a href="index">Home</a></li>
+                <li><a href="resources">Resources</a></li>
+                <li><a href="map">Map</a></li>
+                <li><a href="contact">Contact</a></li>
+                <li><a href="login">Login</a></li>
+            </ul>
+        </div>
+
+        <div id="mapTitle">
+            <h1>Welcome to the Map</h1>
+        </div>
+
+        <div id="mapDiv" style="width: 800px; height: 450px; margin-left: 320px; margin-top: 85px"></div>
+           
+
+            <!--
+                 <%
+                    if(mapPoint){
+                    var marker = '';
+                    mapPoint.forEach(function(item){
+                        map = L.map('mapDiv').setView([item.lat, item.lon], 13);
+                        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+                            maxZoom: 18,
+                            }).addTo(map);
+                            // add marker to the map
+                            marker = L.marker([item.lat, item.lon]).addTo(map);
+                            // add popup to the marker
+                            marker.bindPopup("<b>Boulder</b><br />Colorado");
+                            marker.on ('mouseover', function(event) {
+                                this.openPopup();
+                            });
+                            marker.on ('mouseout', function(event) {
+                                this.closePopup();
+                            });
+                    }); %>
+                    <%- marker %>
+               <% } %> -->
+            
+            
+    </header>
+
+</body>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    var lat = 40.014;
+    var lon = -105.270;
+    // initialize map
+    map = L.map('mapDiv').setView([lat, lon], 13);
+    // set map tiles source
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+    maxZoom: 18,
+    }).addTo(map);
+    $.ajax({url:'/mapData', dataType:"json"}).then(function(data) {
+        for(var i = 0; i < data.length; i++){
+            marker = L.marker([data[i].lat, data[i].lng]).addTo(map);
+            var string = '<strong><center>';
+            string += data[i].trailhead;
+            string += '</center></strong>'
+            string += '<img style = "height:100pt; width:100pt; border-radius: 20px"  src = "' +data[i].img + '"> </br><strong>Fees:</strong> ';
+            string += data[i].fee;
+            string += '</br> <strong>Restroom:</strong>';
+            string += data[i].restroom;
+            string += '</br> <strong>Bikes:</strong> ';
+            string += data[i].bikes;
+            string += '</br> <strong>Dogs:</strong> ';
+            string += data[i].dogs;
+            string += '</br>';
+            marker.bindPopup(string);
+                marker.on ('mouseover', function(event) {
+                    this.openPopup();
+                });
+                marker.on ('mouseout', function(event) {
+                    this.closePopup();
+                });       
+    }
+    })
+    $.ajax({url:'/parkData', dataType:"json"}).then(function(data) {
+        for(var i = 0; i < data.length; i++){
+            marker = L.marker([data[i].lat, data[i].lng]).addTo(map);
+            var string = '<strong><center>';
+            string += data[i].name;
+            string += '</center></strong>'
+            string += '<img style = "height:100pt; width:100pt; border-radius: 20px"  src = "' + data[i].img +'"> </br><strong>Picnic Shelter:</strong> ';
+            string += data[i].picnicShelter;
+            string += '</br> <strong>Playground:</strong>';
+            string += data[i].playground;
+            string += '</br> <strong>Restroom:</strong> ';
+            string += data[i].restroom;
+            string += '</br> <strong>Sports Field:</strong> ';
+            string += data[i].sportsField;
+            string += '</br> <strong>Tennis Court:</strong> ';
+            string += data[i].tennis;
+            string += '</br> <strong>Basketball Court:</strong> ';
+            string += data[i].basketball;
+            string += '</br> <strong>Volleyball Court:</strong> ';
+            string += data[i].volleyball;
+            string += '</br> <strong>RTD Access:</strong> ';
+            string += data[i].rtd;
+            string += '</br> <strong>Bike Path:</strong> ';
+            string += data[i].bikePath;
+            string += '</br>';
+            marker.bindPopup(string);
+                marker.on ('mouseover', function(event) {
+                    this.openPopup();
+                });
+                marker.on ('mouseout', function(event) {
+                    this.closePopup();
+                });       
+    }
+    })
+</script>

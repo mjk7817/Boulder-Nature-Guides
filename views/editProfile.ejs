@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Profile Page</title>
+        <link rel="stylesheet" href="login.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <header>
+            <div class="navbar">
+                <img src="logo.png" class="background" alt="">
+    
+                <ul class="menu">
+                    <li><a href="index">Home</a></li>
+                    <li><a href="map">Map</a></li>
+                    <li><a href="contact">Contact</a></li>
+                    <li><a href = "resources">Resources</a></li>
+                    <li><a href = "/auth/logout">Logout</a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="container mt-4">
+            <form action="/profile/" method="POST">
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="avater-ctn">
+                            <img src="avatar.png" class="avatar" alt="user profile picture">
+                        </div>
+                        <div class = "card-body">
+                            <h5 class="card-title"><%= user.username %></h5>
+                            <input type="text" placeholder="A little about yourself" name = "shortBio" maxlength="160">
+                            <p class = "card-footer"><%= user.email %></p>
+                        </div>
+                    </div>   
+                </div>
+                <div class="col-8">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            Profile Page
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Welcome back <%= user.username %>!</h5>
+                            <input type="text" placeholder="Even more about yourself" name = "fullBio" maxlength="1000">
+                            <input type="submit">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+                   
+        </div>
+        
+    </body>
+</html>

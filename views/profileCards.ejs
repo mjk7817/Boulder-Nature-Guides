@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Form</title>
+        <link rel="stylesheet" href="../login.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        
+    </head>
+    <body onload = 'loadProfiles()'>
+        <header>
+            <div class="navbar">
+    
+                <ul class="menu">
+                    <li><a href="index">Home</a></li>
+                    <li><a href="map">Map</a></li>
+                    <li><a href="contact">Contact</a></li>
+                    <li><a href = "resources">Resources</a></li>
+                    <li><a href = "login">Profile</a></li>
+                </ul>
+            </div>
+        </header>
+        <div class = "container" id="cardContainer">
+        </div>
+        
+    </body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script >
+        function loadProfiles(){
+            $.ajax({url:'/profiles', dataType:"json"}).then(function(data) {
+                console.log(data);
+                for(var i = 0; i < data.length; i++){
+                    var appendString = '';
+                    appendString = '<div class="row" style="padding-bottom: 30px"><div class="col-4"><div class = card><div class = "card-body"><h5 class="card-title">'+data[i].username+'</h5><p class="card-text">'+data[i].shortBio+'</p><p class = "card-footer">'+ data[i].email+'</p></div></div></div>';
+                    appendString2 = '<div class="col-8"><div class="card text-center"><div class="card-header">Full Profile</div><div class="card-body"><p class="card-text">'+data[i].fullBio+'</p></div></div></div></div>';
+                    appendString += appendString2;
+                    $('#cardContainer').append(appendString);
+                }
+            })
+        }
+    </script>
+</html>

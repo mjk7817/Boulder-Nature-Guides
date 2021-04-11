@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Form</title>
+        <link rel="stylesheet" href="../login.css">
+        
+    </head>
+    <body>
+        <header>
+            <div class="navbar">
+                <img src="logo.png" class="background" alt="">
+    
+                <ul class="menu">
+                    <li><a href="index">Home</a></li>
+                    <li><a href="map">Map</a></li>
+                    <li><a href="contact">Contact</a></li>
+                    <li><a href = "resources">Resources</a></li>
+                    <li><a href = "login">Login</a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="register-page">
+            <div class="form">
+                
+                <form id="register-form" class="register-form" action="/auth/login" method="POST">
+                    <% if (message.length > 0) { %>
+                        <div class="alert"><%= message %></div>
+                      <% } %>
+                      <% if (successMessage.length > 0) { %>
+                        <div class="successAlert"><%= successMessage %></div>
+                      <% } %>
+                    <input type="text" placeholder="email" name = "email" required>
+                    <input type="password" placeholder="password" name = "password" required>
+                    
+                    <span id="email_check"></span>
+                    <input type="submit" id="reg-button">
+                    <p class="message">Not registered? <a id="login-link" href="/register">Register</a></p>
+                </form>
+                
+            </div>
+            
+        </div>
+        
+    </body>
+</html>
