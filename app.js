@@ -48,7 +48,7 @@ app.engine('html', require('ejs').renderFile);
 //     }
 // });
 
-let createTable = "CREATE TABLE IF NOT EXISTS users (id INT NOT NULL AUTO_INCREMENT,username varchar(100) NOT NULL,email varchar(100) NOT NULL,password varchar(255) NOT NULL, PRIMARY KEY (id)) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4";
+let createTable = "CREATE TABLE IF NOT EXISTS users (id INT NOT NULL AUTO_INCREMENT,username varchar(100) NOT NULL,email varchar(100) NOT NULL,password varchar(255) NOT NULL, PRIMARY KEY (id))";
 
 db.query(createTable, function(error, results) {
     if(error){
