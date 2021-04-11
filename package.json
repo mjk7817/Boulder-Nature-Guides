@@ -17,7 +17,7 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg-promise": "^10.9.5",
-    "pg": "^8.5.1"
+    "pg": "^13.2"
   },
   "devDependencies": {},
   "scripts": {
