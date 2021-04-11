@@ -56,7 +56,7 @@ db.query(createTable, function(error, results) {
     } 
 })
 
-let createTrailheads = "CREATE TABLE IF NOT EXISTS markers (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,trailhead VARCHAR( 60 ) NOT NULL ,restroom VARCHAR( 80 ) NOT NULL ,fee VARCHAR( 80 ) NOT NULL ,bikes VARCHAR( 80 ) NOT NULL ,dogs VARCHAR( 80 ) NOT NULL ,lat FLOAT( 10, 6 ) NOT NULL ,lng FLOAT( 10, 6 ) NOT NULL);"
+let createTrailheads = "CREATE TABLE IF NOT EXISTS markers (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,trailhead VARCHAR( 60 ) NOT NULL ,restroom VARCHAR( 80 ) NOT NULL ,fee VARCHAR( 80 ) NOT NULL ,bikes VARCHAR( 80 ) NOT NULL ,dogs VARCHAR( 80 ) NOT NULL ,lat FLOAT( 10, 6 ) NOT NULL ,lng FLOAT( 10, 6 ) NOT NULL, img varchar(1000) NOT NULL);"
 
 db.query(createTrailheads, function(error, results) {
     if(error){
@@ -64,7 +64,7 @@ db.query(createTrailheads, function(error, results) {
     } 
 })
 
-let createParks = "CREATE TABLE IF NOT EXISTS parkMark (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,name VARCHAR(60) NOT NULL ,picnicShelter VARCHAR(80) NOT NULL ,playground VARCHAR(80) NOT NULL ,restroom VARCHAR(80) NOT NULL ,sportsField VARCHAR(80) NOT NULL ,tennis VARCHAR(80) NOT NULL ,basketball VARCHAR(80) NOT NULL ,volleyball VARCHAR(80) NOT NULL ,rtd VARCHAR(80) NOT NULL ,bikePath VARCHAR(80) NOT NULL ,lat FLOAT(10, 6) NOT NULL ,lng FLOAT(10, 6) NOT NULL);"
+let createParks = "CREATE TABLE IF NOT EXISTS parkMark (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,name VARCHAR(60) NOT NULL ,picnicShelter VARCHAR(80) NOT NULL ,playground VARCHAR(80) NOT NULL ,restroom VARCHAR(80) NOT NULL ,sportsField VARCHAR(80) NOT NULL ,tennis VARCHAR(80) NOT NULL ,basketball VARCHAR(80) NOT NULL ,volleyball VARCHAR(80) NOT NULL ,rtd VARCHAR(80) NOT NULL ,bikePath VARCHAR(80) NOT NULL ,lat FLOAT(10, 6) NOT NULL ,lng FLOAT(10, 6) NOT NULL, img varchar(1000) NOT NULL);"
 
 db.query(createParks, function(error, results) {
     if(error){
