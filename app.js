@@ -4,7 +4,17 @@ const mysql = require("mysql");
 const dotenv = require("dotenv");
 const path = require("path");
 const cookieParser = require("cookie-parser");
+const { Client } = require('pg');
 
+
+const db = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
+
+db.connect();
 
 
 dotenv.config({ path: './.env'})
@@ -22,21 +32,21 @@ app.use(express.static(stylesDirectory));
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
-const db = mysql.createConnection({
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE,
-    multipleStatements: true
-})
+// const db = mysql.createConnection({
+//     host: process.env.DATABASE_HOST,
+//     user: process.env.DATABASE_USER,
+//     password: process.env.DATABASE_PASSWORD,
+//     database: process.env.DATABASE,
+//     multipleStatements: true
+// })
 
-db.connect( (error) => {
-    if(error){
-        console.log(error);
-    } else{
-        console.log("MYSQL connected");
-    }
-});
+// db.connect( (error) => {
+//     if(error){
+//         console.log(error);
+//     } else{
+//         console.log("MYSQL connected");
+//     }
+// });
 
 let createTable = "CREATE TABLE IF NOT EXISTS users (id int(11) NOT NULL AUTO_INCREMENT,username varchar(100) NOT NULL,email varchar(100) NOT NULL,password varchar(255) NOT NULL, PRIMARY KEY (id)) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4";
 
