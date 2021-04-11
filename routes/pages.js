@@ -2,13 +2,23 @@ const express = require("express");
 const authController = require('../controllers/auth');
 const router = express.Router();
 const mysql = require("mysql");
+const { Client } = require('pg');
 
-const db = mysql.createConnection({
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE
-})
+
+const db = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
+
+db.connect();
+// const db = mysql.createConnection({
+//     host: process.env.DATABASE_HOST,
+//     user: process.env.DATABASE_USER,
+//     password: process.env.DATABASE_PASSWORD,
+//     database: process.env.DATABASE
+// })
 
 
 
