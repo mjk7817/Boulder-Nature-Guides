@@ -38,8 +38,8 @@ exports.register = (req, res) => {
 //             return res.render('register', {
 //                 message: 'That email has been taken',
 //                 successMessage: ''
-//             });
-        } else if(!email_regex.test(String(email).toLowerCase())){
+//             }); }
+        else if(!email_regex.test(String(email).toLowerCase())){
             return res.render('register', {
                 message: 'Invalid email',
                 successMessage: ''
