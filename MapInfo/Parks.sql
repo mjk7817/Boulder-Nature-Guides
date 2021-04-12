@@ -11,8 +11,8 @@ CREATE TABLE IF NOT EXISTS parkMark (
    volleyball VARCHAR(80) NOT NULL ,
    rtd VARCHAR(80) NOT NULL ,
    bikePath VARCHAR(80) NOT NULL ,
-  lat FLOAT(10, 6) NOT NULL ,
-  lng FLOAT(10, 6) NOT NULL,
+  lat DECIMAL(10, 6) NOT NULL ,
+  lng DECIMAL(10, 6) NOT NULL,
   img VARCHAR(1000) NOT NULL
 );
 
