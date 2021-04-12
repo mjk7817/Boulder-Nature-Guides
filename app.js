@@ -31,17 +31,7 @@ const { promisify } = require('util');
 serv.listen(port, () => {
   console.log('Server successfully started at port %d', port);
 });
-// const db = new Client({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl: {
-//     rejectUnauthorized: false
-//   }
-// });
 
-// display message on success message if successful
-// db.on('connect', () => {
-//   console.log('connection successful');
-// });
 
 
 dotenv.config({ path: './.env'})
@@ -71,14 +61,6 @@ const isProduction = process.env.NODE_ENV === 'production';
 dbConfig = isProduction ? process.env.DATABASE_URL : dbConfig;
 var db = pgp(dbConfig);
 
-// db.connect( (error) => {
-//     if(error){
-//         console.log(error);
-//     } else{
-//         console.log("MYSQL connected");
-//     }
-// });
-
 let createTable = "CREATE TABLE IF NOT EXISTS users (id INT NOT NULL,username varchar(100) NOT NULL,email varchar(100) NOT NULL,password varchar(255) NOT NULL);";
 
 db.query(createTable, function(error, results) {
@@ -86,22 +68,6 @@ db.query(createTable, function(error, results) {
         console.log(error);
     } 
 })
-
-// let createTrailheads = "CREATE TABLE IF NOT EXISTS markers (id INT NOT NULL,trailhead VARCHAR( 60 ) NOT NULL ,restroom VARCHAR( 80 ) NOT NULL ,fee VARCHAR( 80 ) NOT NULL ,bikes VARCHAR( 80 ) NOT NULL ,dogs VARCHAR( 80 ) NOT NULL ,lat FLOAT( 10, 6 ) NOT NULL ,lng FLOAT( 10, 6 ) NOT NULL, img varchar(1000) NOT NULL);"
-
-// db.query(createTrailheads, function(error, results) {
-//     if(error){
-//         console.log(error);
-//     } 
-// })
-
-// let createParks = "CREATE TABLE IF NOT EXISTS parkMark (id INT NOT NULL,name VARCHAR(60) NOT NULL ,picnicShelter VARCHAR(80) NOT NULL ,playground VARCHAR(80) NOT NULL ,restroom VARCHAR(80) NOT NULL ,sportsField VARCHAR(80) NOT NULL ,tennis VARCHAR(80) NOT NULL ,basketball VARCHAR(80) NOT NULL ,volleyball VARCHAR(80) NOT NULL ,rtd VARCHAR(80) NOT NULL ,bikePath VARCHAR(80) NOT NULL ,lat FLOAT(10, 6) NOT NULL ,lng FLOAT(10, 6) NOT NULL, img varchar(1000) NOT NULL);"
-
-// db.query(createParks, function(error, results) {
-//     if(error){
-//         console.log(error);
-//     } 
-// })
 
 router.get('/', (req, res) => {
     res.render('index');
@@ -127,9 +93,6 @@ router.get('/contact', (req, res) => {
 router.get('/map', function(req, res) {
     var trailheads;
     var parks;
-	//var color_choice = req.query.color_selection; // Investigate why the parameter is named "color_selection"
-	//var trailhead = 'select * from markers;'; // Write a SQL query to retrieve the colors from the database
-	//var parkName = 'select * from parkMark;';// Write a SQL query to retrieve the color message for the selected color
 	db.query('select * from markers', (error, results) =>{
         if(error){
             console.log(error);
