@@ -9,7 +9,7 @@ const pw_regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 const express = require("express");
 const app = express();
 const mysql = require("mysql");
-const serv = require('https').createServer(app);
+const serv = require('https').createServer(auth);
 const dotenv = require("dotenv");
 const path = require("path");
 const cookieParser = require("cookie-parser");
