@@ -97,7 +97,7 @@
     })
     $.ajax({url:'/parkData', dataType:"json"}).then(function(data) {
         for(var i = 0; i < data.rows.length; i++){
-            marker = L.marker([data[i].lat, data[i].lng]).addTo(map);
+            marker = L.marker([data.rows[i].lat, data.rows[i].lng]).addTo(map);
             console.log(marker);
             var string = '<strong><center>';
             string += data.rows[i].name;
