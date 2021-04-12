@@ -60,8 +60,8 @@ exports.register = (req, res) => {
 
         let hashedPassword = await bcrypt.hash(password, 8);
         console.log(hashedPassword);
-//make a query string using contents from lines 28-31 but use hashed password instead, get rid of everything in curly brackets
-        db.query('INSERT INTO users SET ?', {username: username, password: hashedPassword, email: email}, (error, results) =>{
+      let insertQuery = "INSERT INTO users VALUES ('" + username + "', '" + hashedPassword +"', '" + email + "');" //make a query string using contents from lines 28-31 but use hashed password instead, get rid of everything in curly brackets
+        db.query(insertQuery, (error, results) =>{
             if(error){
                 console.log(error);
             } else{
