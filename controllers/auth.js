@@ -3,8 +3,8 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const pw_regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-const { promisify } = require('util');
-const { Client } = require('pg');
+//const { promisify } = require('util');
+//const { Client } = require('pg');
 
 const express = require("express");
 const app = express();
@@ -43,6 +43,7 @@ exports.register = (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     const passwordConfirm = req.body.passwordConfirm;  
+  
   let dbConfig = { //these need to be our local configurations
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
