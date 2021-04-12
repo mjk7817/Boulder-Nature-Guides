@@ -1,24 +1,16 @@
-//const mysql = require("mysql");
+const mysql = require("mysql");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const pw_regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-//const { promisify } = require('util');
-//const { Client } = require('pg');
+const { promisify } = require('util');
 
-const express = require("express");
-const app = express();
-const mysql = require("mysql");
-const serv = require('https').createServer(app);
-const dotenv = require("dotenv");
-const path = require("path");
-const cookieParser = require("cookie-parser");
-const port = process.env.PORT || 3000;
-var pgp = require('pg-promise')();
-
-serv.listen(port, () => {
-  console.log('Server successfully started at port %d', port);
-});
+const db = mysql.createConnection({
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE
+})
 
 exports.register = (req, res) => {
     console.log(req.body);
@@ -27,31 +19,17 @@ exports.register = (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     const passwordConfirm = req.body.passwordConfirm;  
-  
-  let dbConfig = { //these need to be our local configurations
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE,
-    multipleStatements: true
-};
-  
-const isProduction = process.env.NODE_ENV === 'production';
-dbConfig = isProduction ? process.env.DATABASE_URL : dbConfig;
-var db = pgp(dbConfig);
 
     db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) =>{
-      console.log(email);  
-      if(error){
+        if(error){
             console.log(error);
         }
-   
-//         if(results.length > 0){
-//             return res.render('register', {
-//                 message: 'That email has been taken',
-//                 successMessage: ''
-//             }); }
-        else if(!email_regex.test(String(email).toLowerCase())){
+        if(results.length > 0){
+            return res.render('register', {
+                message: 'That email has been taken',
+                successMessage: ''
+            });
+        } else if(!email_regex.test(String(email).toLowerCase())){
             return res.render('register', {
                 message: 'Invalid email',
                 successMessage: ''
@@ -70,8 +48,8 @@ var db = pgp(dbConfig);
 
         let hashedPassword = await bcrypt.hash(password, 8);
         console.log(hashedPassword);
-      let insertQuery = "INSERT INTO users VALUES ('" + username + "', '" + hashedPassword +"', '" + email + "');" //make a query string using contents from lines 28-31 but use hashed password instead, get rid of everything in curly brackets
-        db.query(insertQuery, (error, results) =>{
+
+        db.query('INSERT INTO users SET ?', {username: username, password: hashedPassword, email: email}, (error, results) =>{
             if(error){
                 console.log(error);
             } else{
