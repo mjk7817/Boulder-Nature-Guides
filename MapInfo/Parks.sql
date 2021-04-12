@@ -17,7 +17,6 @@ CREATE TABLE IF NOT EXISTS parkMark (
 );
 
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng, img ) VALUES(1,'Admiral Areligh A Burke Park','yes', 'no', 'no', 'no','no', 'no', 'no', 'no', 'no', '39.995039789336325', ' -105.23655675793312', ' https://moaa-aabc.org/images/aab_park_anchor_a.jpg');
-');
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng, img )  VALUES(2,'Andrews Aboratoreum', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'yes', 'yes', '40.012671862512036', ' -105.27730166035434', 'https://cimages1.touristlink.com/data/cache/A/N/D/R/E/W/S/A/andrews-arboretum_400_300.jpg');
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng, img )  VALUES(3,'Ann Armstrong Park', 'no', 'no', 'no', 'no', 'no', 'no', 'no','no','no', '40.02566711292958', ' -105.27503177199578', 'https://live.staticflickr.com/2852/9356793467_c6b60593f8_b.jpg');
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng, img ) VALUES(4, 'Arapahoe Ridge Park', 'yes', 'yes', 'no', 'yes', 'yes', 'no', 'no','yes','no', '40.00933316763496', '-105.23246451802609', 'http://kiesa.festing.org/wordpress/wp-content/uploads/ArapahoeRidgePark.jpg');
@@ -31,32 +30,23 @@ INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tenni
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img  ) VALUES(12, 'Campbell Robertson Park', 'no', 'no', 'no', 'no', 'no','no','no','yes','no','40.01737454646853','-105.28942170453323', 'https://live.staticflickr.com/5787/21094372278_e7c27bbb27_b.jpg');
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img )VALUES(13, 'Canyon Pointe Park', 'no', 'no', 'no','no','no','no','no','yes','no','40.01539391627745','-105.28652476035427', 'https://www.stavislost.com%2Fimages%2Fphotography%2F2019%2F5c5e147511966.jpg&f=1&nofb=1');
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img ) VALUES(14, 'Catalpa Park', 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'yes', '40.0418419228853', '-105.27272988733839', 'https://www-static.bouldercolorado.gov/docs/banners/1374788989_IMG_0349.jpg');
-');#wayne start here, 
+
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img ) VALUES(15, 'Central Park and Civic Area', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'yes', 'yes','40.01568756511576', '-105.27843927384681', 'https://www-static.bouldercolorado.gov/docs/banners/1374788821_DSC_1125.jpg');
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img ) VALUES(16, 'Chautauqua Park', 'yes', 'yes', 'yes', 'no', 'yes', 'no', 'no', 'yes', 'yes','39.999405050642366', '-105.28143522966836', 'https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_360,q_50,w_1024/v1/clients/boulder/39690c01_e97d_42c8_acaf_9cd3d2eef013_97cd4c13-b052-4538-8e4d-e3ff83050045.jpg');
-');
+
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img ) VALUES(17, 'Christensen Park', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no', 'yes', 'yes', '40.03093455030062', '-105.2392657431597', 'https://farm4.static.flickr.com/3790/9357397101_4c31cbb9c5.jpg');
-');
+
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img ) VALUES(18,'Columbine Park', 'no', 'yes', 'no', 'yes', 'yes', 'no', 'no', 'no', 'no', '40.03314785488435', '-105.26866980239821', 'https://kiesa.festing.org/wordpress/wp-content/uploads/07Balance2.jpg');
-');
+
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img ) VALUES(19, 'Coot Lake', 'no', 'no', 'no', 'yes', 'no', 'no', 'no', 'no', 'yes', '40.08604211974694', '-105.20715224107033', 'http://www.protrails.com/protrails/trails/337.jpg');
-');
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img ) VALUES(20, 'Crestview Park', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', '40.05336626061676', '-105.27533610387704', 'https://kiesa.festing.org/wordpress/wp-content/uploads/crestview.jpg');
-');
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img ) VALUES(21, 'Dakota Park', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no', 'yes', 'yes','40.06619059471615', '-105.28757688745813', 'https://images.squarespace-cdn.com/content/v1/5373ca62e4b0875c414542a1/1406134455902-X73DG3LKJGVXCC3NILCT/ke17ZwdGBToddI8pDm48kCHChmuivJZ1Va5ov3ZJeg17gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0ouw-8l5B_J38LMU7OZFvYcSGirBhY_3j1yQtntvGS73bypqQ-qjSV5umPUlGbQFAw/DSC_0054.jpg?format=2500w');
-');
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img ) VALUES(22, 'East Boulder Community Center', 'no', 'yes', 'yes', 'no', 'no', 'no', 'no','yes', 'yes', '39.99233429454641', '-105.21997204316122', 'https://assets.simpleviewinc.com/simpleview/image/fetch/c_lpad,h_275,q_75,w_387/https://assets.simpleviewinc.com/simpleview/image/upload/crm/boulder/rec-center_a15cb3fd-5056-a36a-073d8593f733df68.jpg');
-');
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img )VALUES(23, 'East Boulder Community Park', 'yes', 'yes', 'no',  'yes','yes', 'yes','yes','yes','yes','39.99220229621591', '-105.21995698548965', 'https://assets.simpleviewinc.com/simpleview/image/fetch/c_lpad,h_275,q_75,w_387/https://assets.simpleviewinc.com/simpleview/image/upload/crm/boulder/rec-center2_a15ca72c-5056-a36a-07d2977345702338.jpg');
-');
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img ) VALUES(24, 'East Mapleton Ballfields', 'yes', 'yes', 'yes', 'no','no', 'no','no','yes','yes','40.02542872513048', '-105.25563208733904', 'https://fastly.4sqi.net/img/general/600x600/358336_IAfPjoPrLDy6rGC2iN3zGiXtTEoRQ03NJpTuGt_ygGE.jpg');
-');
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img )VALUES(25, 'Eaton Park', 'yes', 'no', 'no','no','no','no', 'no', 'yes','yes', '40.064847722392244', '-105.20123156721694', 'http://www.mountainflyermagazine.com/img/upimages/eddie_clark/EatonPark2010/EClark_2010_EatonPark_8707.jpg');
-');
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img) VALUES(26, 'Eben G. Fine Park', 'yes', 'yes','yes', 'no', 'no', 'no', 'no', 'yes', 'yes','40.013195271559766','-105.29490344316042', 'https://live.staticflickr.com/8058/8248546154_0e32fefca2_b.jpg');
-');#wayne stops here
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img ) VALUES(27, 'Edward Sell Smith Park', 'no', 'yes','no','no','no','no','no','no','no','40.004603125134786','-105.28846254501137', 'https://farm2.static.flickr.com/1974/45124587491_c97051c7d8_o.jpg');
-');
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img ) VALUES(28, 'Elks Park', 'yes', 'no', 'no', 'yes', 'no','no','no','yes','yes', '40.04790767857579', '-105.25968687199489', 'https://assets.simpleviewinc.com/simpleview/image/fetch/q_75/https://assets.simpleviewinc.com/simpleview/image/upload/crm/boulder/Elks-Park-Boulder-3d07071f5056a36_3d070887-5056-a36a-071beb37ddcc0fb0.jpg');
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img ) VALUES(29, 'Elmers Two Mile Park', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'yes', '40.03487794385818', '105.26102798733864', 'https://mediacdn.cincopa.com/v2/87034/27!oqHAAoG5gCAlCB/4/ElmersTwoMile-9a.JPG');
 INSERT INTO parkMark(id,name,picnicShelter,playground,restroom,sportsField,tennis, basketball,volleyball,rtd,bikePath,lat,lng,img ) VALUES(30, 'Emma Gomez Martinez Park', 'no', 'yes', 'no', 'no', 'no', 'yes', 'no', 'yes', 'yes', '40.0178525952937', '105.26813601617509', 'https://media-cdn.tripadvisor.com/media/photo-s/0f/99/6c/95/views-of-emma-gomez-martinez.jpg');
