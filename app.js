@@ -21,6 +21,13 @@ router.get('/logout', authController.logout);
 
 module.exports = router;
 
+//code from auth.js controllers
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const pw_regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+const { promisify } = require('util');
+
 serv.listen(port, () => {
   console.log('Server successfully started at port %d', port);
 });
