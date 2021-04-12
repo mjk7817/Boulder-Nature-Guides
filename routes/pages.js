@@ -1,29 +1,14 @@
 const express = require("express");
-const app = express();
+const authController = require('../controllers/auth');
+const router = express.Router();
 const mysql = require("mysql");
-const serv = require('http').createServer(app);
-const dotenv = require("dotenv");
-const path = require("path");
-const cookieParser = require("cookie-parser");
-const port = process.env.PORT || 3000;
-var pgp = require('pg-promise')();
 
-
-serv.listen(port, () => {
-  console.log('Server successfully started at port %d', port);
-});
-
-let dbConfig = { //these need to be our local configurations
+const db = mysql.createConnection({
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE,
-    multipleStatements: true
-};
-  
-const isProduction = process.env.NODE_ENV === 'production';
-dbConfig = isProduction ? process.env.DATABASE_URL : dbConfig;
-var db = pgp(dbConfig);
+    database: process.env.DATABASE
+})
 
 
 
