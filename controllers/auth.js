@@ -31,10 +31,11 @@ exports.register = (req, res) => {
     const passwordConfirm = req.body.passwordConfirm;  
 
     db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) =>{
-        if(error){
+      console.log(email);  
+      if(error){
             console.log(error);
         }
-      console.log(email);
+   
 //         if(results.length > 0){
 //             return res.render('register', {
 //                 message: 'That email has been taken',
