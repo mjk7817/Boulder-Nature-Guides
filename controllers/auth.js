@@ -21,14 +21,14 @@ serv.listen(port, () => {
 });
 
 
-const db = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
-});
+// const db = new Client({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: {
+//     rejectUnauthorized: false
+//   }
+// });
 
-db.connect();
+// db.connect();
 // const db = mysql.createConnection({
 //     host: process.env.DATABASE_HOST,
 //     user: process.env.DATABASE_USER,
@@ -43,6 +43,17 @@ exports.register = (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     const passwordConfirm = req.body.passwordConfirm;  
+  let dbConfig = { //these need to be our local configurations
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE,
+    multipleStatements: true
+};
+  
+const isProduction = process.env.NODE_ENV === 'production';
+dbConfig = isProduction ? process.env.DATABASE_URL : dbConfig;
+var db = pgp(dbConfig);
 
     db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) =>{
       console.log(email);  
