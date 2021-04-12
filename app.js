@@ -8,6 +8,19 @@ const cookieParser = require("cookie-parser");
 const port = process.env.PORT || 3000;
 var pgp = require('pg-promise')();
 
+//const express = require("express");
+const authController = require('../controllers/auth');//code from auth.js in routes file
+
+const router = express.Router();
+
+router.post('/register', authController.register);
+
+router.post('/login', authController.login);
+
+router.get('/logout', authController.logout);
+
+module.exports = router;
+
 serv.listen(port, () => {
   console.log('Server successfully started at port %d', port);
 });
