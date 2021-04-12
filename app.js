@@ -13,11 +13,11 @@ var pgp = require('pg-promise')();
 
 const router = express.Router();
 
-router.post('/register', authController.register);
+router.post('/register', register());
 
-router.post('/login', authController.login);
+router.post('/login', login());
 
-router.get('/logout', authController.logout);
+router.get('/logout', logout());
 
 module.exports = router;
 
@@ -77,7 +77,7 @@ router.get('/register', (req, res) => {
     res.render('register', {message: '', successMessage: ''});
 })
 
-router.get('/login', authController.isLoggedIn, (req, res) => {
+router.get('/login', isLoggedIn(), (req, res) => {
     if(req.user){
         res.redirect('/profile');
     } else{
@@ -123,7 +123,7 @@ router.get('/resources', (req, res) => {
     res.render('resources');
 })
 
-router.get('/profile', authController.isLoggedIn, (req, res) => {
+router.get('/profile', isLoggedIn(), (req, res) => {
     if(req.user && req.profile){
         res.render('profile', {
             user: req.user,
@@ -246,7 +246,7 @@ router.get('/mapData',  (req, res) => {
 
 module.exports = router;
 
-exports.register = (req, res) => {
+register = (req, res) => {
     console.log(req.body);
 
     const username = req.body.username;
@@ -295,7 +295,7 @@ exports.register = (req, res) => {
     
 }
 
-exports.login = async (req, res) => {
+login = async (req, res) => {
     try {
         const email = req.body.email;
         const password = req.body.password;
@@ -333,7 +333,7 @@ exports.login = async (req, res) => {
     }
 } 
 
-exports.isLoggedIn = async (req, res, next) => {
+isLoggedIn = async (req, res, next) => {
     if(req.cookies.jwt){
         try {
             const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET);
@@ -365,7 +365,7 @@ exports.isLoggedIn = async (req, res, next) => {
     }
 }
 
-exports.logout= async (req, res) => {    
+logout= async (req, res) => {    
     res.cookie('jwt', 'logout', {
         expires: new Date(Date.now() + 2),
         httpOnly: true
