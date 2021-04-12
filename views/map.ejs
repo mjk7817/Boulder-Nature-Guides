@@ -73,6 +73,7 @@
     $.ajax({url:'/mapData', dataType:"json"}).then(function(data) {
         for(var i = 0; i < data.length; i++){
             marker = L.marker([data[i].lat, data[i].lng]).addTo(map);
+            console.log(marker);
             var string = '<strong><center>';
             string += data[i].trailhead;
             string += '</center></strong>'
@@ -97,6 +98,7 @@
     $.ajax({url:'/parkData', dataType:"json"}).then(function(data) {
         for(var i = 0; i < data.length; i++){
             marker = L.marker([data[i].lat, data[i].lng]).addTo(map);
+            console.log(marker);
             var string = '<strong><center>';
             string += data[i].name;
             string += '</center></strong>'
