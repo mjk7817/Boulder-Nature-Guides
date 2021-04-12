@@ -6,7 +6,7 @@ const dotenv = require("dotenv");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const port = process.env.PORT || 3000;
-var pgp = require('pg-promise');
+var pgp = require('pg-promise')();
 
 serv.listen(port, () => {
   console.log('Server successfully started at port %d', port);
