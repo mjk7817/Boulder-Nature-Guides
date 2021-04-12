@@ -34,6 +34,7 @@ exports.register = (req, res) => {
         if(error){
             console.log(error);
         }
+      console.log(email);
 //         if(results.length > 0){
 //             return res.render('register', {
 //                 message: 'That email has been taken',
