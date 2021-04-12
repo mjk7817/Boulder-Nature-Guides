@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 var pgp = require('pg-promise')();
 
 //const express = require("express");
-const authController = require('../controllers/auth');//code from auth.js in routes file
+const authController = require('../controllers/auth');//error here
 
 const router = express.Router();
 
