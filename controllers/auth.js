@@ -20,22 +20,6 @@ serv.listen(port, () => {
   console.log('Server successfully started at port %d', port);
 });
 
-
-// const db = new Client({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl: {
-//     rejectUnauthorized: false
-//   }
-// });
-
-// db.connect();
-// const db = mysql.createConnection({
-//     host: process.env.DATABASE_HOST,
-//     user: process.env.DATABASE_USER,
-//     password: process.env.DATABASE_PASSWORD,
-//     database: process.env.DATABASE
-// })
-
 exports.register = (req, res) => {
     console.log(req.body);
 
