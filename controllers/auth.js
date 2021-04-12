@@ -6,6 +6,20 @@ const pw_regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 const { promisify } = require('util');
 const { Client } = require('pg');
 
+const express = require("express");
+const app = express();
+const mysql = require("mysql");
+const serv = require('https').createServer(app);
+const dotenv = require("dotenv");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const port = process.env.PORT || 3000;
+var pgp = require('pg-promise')();
+
+serv.listen(port, () => {
+  console.log('Server successfully started at port %d', port);
+});
+
 
 const db = new Client({
   connectionString: process.env.DATABASE_URL,
