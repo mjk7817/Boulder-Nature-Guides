@@ -59,7 +59,7 @@ var db = pgp(dbConfig);
 //     }
 // });
 
-let createTable = "CREATE TABLE IF NOT EXISTS users (id INT NOT NULL,username varchar(100) NOT NULL,email varchar(100) NOT NULL,password varchar(255) NOT NULL)";
+let createTable = "CREATE TABLE IF NOT EXISTS users (id INT NOT NULL,username varchar(100) NOT NULL,email varchar(100) NOT NULL,password varchar(255) NOT NULL);";
 
 db.query(createTable, function(error, results) {
     if(error){
