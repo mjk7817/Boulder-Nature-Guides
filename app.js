@@ -1,23 +1,27 @@
 const express = require("express");
 const app = express();
 const mysql = require("mysql");
+const serv = require('http').createServer(app);
 const dotenv = require("dotenv");
 const path = require("path");
 const cookieParser = require("cookie-parser");
-const { Client } = require('pg');
+const port = process.env.PORT || 3000;
+var pgp = require('pg-promise');
 
-
-const db = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
+serv.listen(port, () => {
+  console.log('Server successfully started at port %d', port);
 });
+// const db = new Client({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: {
+//     rejectUnauthorized: false
+//   }
+// });
 
 // display message on success message if successful
-db.on('connect', () => {
-  console.log('connection successful');
-});
+// db.on('connect', () => {
+//   console.log('connection successful');
+// });
 
 
 dotenv.config({ path: './.env'})
@@ -35,13 +39,17 @@ app.use(express.static(stylesDirectory));
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
-// const db = mysql.createConnection({
-//     host: process.env.DATABASE_HOST,
-//     user: process.env.DATABASE_USER,
-//     password: process.env.DATABASE_PASSWORD,
-//     database: process.env.DATABASE,
-//     multipleStatements: true
-// })
+  let dbConfig = { //these need to be our local configurations
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE,
+    multipleStatements: true
+};
+  
+const isProduction = process.env.NODE_ENV === 'production';
+dbConfig = isProduction ? process.env.DATABASE_URL : dbConfig;
+var db = pgp(dbConfig);
 
 // db.connect( (error) => {
 //     if(error){
@@ -51,7 +59,7 @@ app.engine('html', require('ejs').renderFile);
 //     }
 // });
 
-let createTable = "CREATE TABLE IF NOT EXISTS users (id INT NOT NULL,username varchar(100) NOT NULL,email varchar(100) NOT NULL,password varchar(255) NOT NULL )";
+let createTable = "CREATE TABLE IF NOT EXISTS users (id INT NOT NULL,username varchar(100) NOT NULL,email varchar(100) NOT NULL,password varchar(255) NOT NULL)";
 
 db.query(createTable, function(error, results) {
     if(error){
