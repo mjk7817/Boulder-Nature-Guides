@@ -2,26 +2,20 @@ const express = require("express");
 const authController = require('../controllers/auth');
 const router = express.Router();
 const mysql = require("mysql");
+var pgp = require('pg-promise')();
 
-const { Client } = require('pg');
+let dbConfig = { //these need to be our local configurations
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE,
+    multipleStatements: true
+};
+  
+const isProduction = process.env.NODE_ENV === 'production';
+dbConfig = isProduction ? process.env.DATABASE_URL : dbConfig;
+var db = pgp(dbConfig);
 
-const client = new Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false
-    }
-});
-
-client.connect();
-
-client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
-    if (err) throw err;
-    for (let row of res.rows) {
-        console.log(JSON.stringify(row));
-    }
-    client.end();
-});
-// var db = pgp(dbConfig);
 
 router.get('/', (req, res) => {
     res.render('index');
