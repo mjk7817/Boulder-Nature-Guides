@@ -231,7 +231,7 @@ app.get('/mapData',  (req, res) => {
 
 //module.exports = router;
 
-app.use('/', require('./routes/pages'));
-app.use('/auth', require('./routes/auth'));
+//app.use('/', require('./routes/pages'));
+//app.use('/auth', require('./routes/auth'));
 //module.exports = router ;
 
