@@ -189,53 +189,51 @@ app.get('/profiles', authController.isLoggedIn, (req, res) => {
     
 })
 
-//need to rewrite according to lab 7, has unexpected input error
 app.get('/mapData',  (req, res) => {
     var selectMarkers = 'select * from markers;';
-    
-    db.task('get-everything', function(req,res){
+
+    db.task('get-everything', function (req, res) {
         return task.batch([
             task.any(selectMarkers)
         ]);
 
     })
-    .then(info => {
-        res.render('/mapData',{
-            my_title: "Map",
-            data: info[0]
-
-        })
-    })
-    .catch(err => {
-        console.log('error', err);
-        res.render('/mapData', {
-            data: ''
-        })
-    })
-
-//need to rewrite according to lab7, has unexpected input error
- app.get('/parkData',  (req, res) => {
-        var selectParkMark = 'select * from parkmark;';
-        db.task('get-everything', function(req,res){
-            return task.batch([
-                task.any(selectParkMark)
-            ]);
-    
-        })
         .then(info => {
-            res.render('/parkData',{
+            res.render('/mapData', {
                 my_title: "Map",
                 data: info[0]
-    
+
             })
         })
         .catch(err => {
             console.log('error', err);
-            res.render('/parkData', {
+            res.render('/mapData', {
                 data: ''
             })
-         
-     })
+        })
+})
 
+//need to rewrite according to lab7, has unexpected input error
+    app.get('/parkData',  (req, res) => {
+        var selectParkMark = 'select * from parkmark;';
+        db.task('get-everything', function (req, res) {
+            return task.batch([
+                task.any(selectParkMark)
+            ]);
 
+        })
+            .then(info => {
+                res.render('/parkData', {
+                    my_title: "Map",
+                    data: info[0]
 
+                })
+            })
+            .catch(err => {
+                console.log('error', err);
+                res.render('/parkData', {
+                    data: ''
+                })
+
+            })
+    })
