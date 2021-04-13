@@ -199,7 +199,7 @@ app.get('/mapData',  (req, res) => {
 
     })
         .then(info => {
-            res.render('/mapData', {
+            res.render('/app/views', {
                 my_title: "Map",
                 data: info[0]
 
@@ -207,7 +207,7 @@ app.get('/mapData',  (req, res) => {
         })
         .catch(err => {
             console.log('error', err);
-            res.render('/mapData', {
+            res.render('/app/views', {
                 data: ''
             })
         })
@@ -223,7 +223,7 @@ app.get('/mapData',  (req, res) => {
 
         })
             .then(info => {
-                res.render('/parkData', {
+                res.render('/app/views', {
                     my_title: "Map",
                     data: info[0]
 
@@ -231,7 +231,7 @@ app.get('/mapData',  (req, res) => {
             })
             .catch(err => {
                 console.log('error', err);
-                res.render('/parkData', {
+                res.render('/app/views', {
                     data: ''
                 })
 
