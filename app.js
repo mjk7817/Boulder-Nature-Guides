@@ -199,7 +199,7 @@ app.get('/mapData',  (req, res) => {
 
     })
         .then(info => {
-            res.render('/app/views/map', {
+            res.render('/app/views', {
                 my_title: "Map",
                 data: info[0]
 
@@ -207,7 +207,7 @@ app.get('/mapData',  (req, res) => {
         })
         .catch(err => {
             console.log('error', err);
-            res.render('/app/views/map', {
+            res.render('/app/views', {
                 data: ''
             })
         })
