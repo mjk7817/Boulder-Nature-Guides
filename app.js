@@ -237,3 +237,8 @@ app.get('/mapData',  (req, res) => {//broken
 
             })
     })
+app.post('/register', authController.register);
+
+app.post('/login', authController.login);
+
+app.get('/logout', authController.logout);
