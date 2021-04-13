@@ -246,7 +246,7 @@ router.get('/mapData',  (req, res) => {
 
 module.exports = router;
 
-register = (req, res) => {
+function register() = (req, res) => {
     console.log(req.body);
 
     const username = req.body.username;
@@ -295,7 +295,7 @@ register = (req, res) => {
     
 }
 
-login = async (req, res) => {
+function login() = async (req, res) => {
     try {
         const email = req.body.email;
         const password = req.body.password;
@@ -333,7 +333,7 @@ login = async (req, res) => {
     }
 } 
 
-isLoggedIn = async (req, res, next) => {
+function isLoggedIn() = async (req, res, next) => {
     if(req.cookies.jwt){
         try {
             const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET);
@@ -365,7 +365,7 @@ isLoggedIn = async (req, res, next) => {
     }
 }
 
-logout= async (req, res) => {    
+function logout() = async (req, res) => {    
     res.cookie('jwt', 'logout', {
         expires: new Date(Date.now() + 2),
         httpOnly: true
