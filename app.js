@@ -189,7 +189,7 @@ app.get('/profiles', authController.isLoggedIn, (req, res) => {
     
 })
 
-app.get('/mapData',  (req, res) => {
+app.get('/mapData',  (req, res) => {//broken
     var selectMarkers = 'select * from markers;';
 
     db.task('get-everything', task => {
@@ -213,8 +213,8 @@ app.get('/mapData',  (req, res) => {
         })
 })
 
-//need to rewrite according to lab7, has unexpected input error
-    app.get('/parkData',  (req, res) => {
+
+    app.get('/parkData',  (req, res) => {//broken
         var selectParkMark = 'select * from parkmark;';
         db.task('get-everything', task => {
             return task.batch([
