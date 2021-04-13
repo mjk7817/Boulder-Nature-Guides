@@ -78,14 +78,14 @@ app.get('/map', function(req, res) {
 	//var color_choice = req.query.color_selection; // Investigate why the parameter is named "color_selection"
 	//var trailhead = 'select * from markers;'; // Write a SQL query to retrieve the colors from the database
 	//var parkName = 'select * from parkMark;';// Write a SQL query to retrieve the color message for the selected color
-	db.query('select * from markers', (error, results) =>{
+	db.query('select * from markers;', (error, results) =>{
         if(error){
             console.log(error);
         }
         trailheads = results;
     });
 
-    db.query('select * from parkMark', (error, results) =>{
+    db.query('select * from parkMark;', (error, results) =>{
         if(error){
             console.log(error);
         }
@@ -172,7 +172,7 @@ app.get('/browseProfiles', (req, res) => {
 app.get('/profiles', authController.isLoggedIn, (req, res) => {
    async function userQuery(){
         return new Promise((resolve,reject)=>{
-            db.query('select * from profiles', function(error,results,field){
+            db.query('select * from profiles;', function(error,results,field){
                     resolve(results);
             });
 
@@ -192,7 +192,7 @@ app.get('/profiles', authController.isLoggedIn, (req, res) => {
 app.get('/mapData',  (req, res) => {
     async function userQuery(){
          return new Promise((resolve,reject)=>{
-             db.query('select * from markers', function(error,results,field){
+             db.query('select * from markers;', function(error,results,field){
                      resolve(results);
              });
  
@@ -212,7 +212,7 @@ app.get('/mapData',  (req, res) => {
  app.get('/parkData',  (req, res) => {
     async function userQuery(){
          return new Promise((resolve,reject)=>{
-             db.query('select * from parkmark', function(error,results,field){
+             db.query('select * from parkmark;', function(error,results,field){
                      resolve(results);
              });
  
