@@ -246,61 +246,56 @@ router.get('/mapData',  (req, res) => {
 
 module.exports = router;
 
-function register() 
-{
-    (req, res) => {
-        console.log(req.body);
+exports.register = (req, res) => {
+    console.log(req.body);
 
-        const username = req.body.username;
-        const email = req.body.email;
-        const password = req.body.password;
-        const passwordConfirm = req.body.passwordConfirm;  
+    const username = req.body.username;
+    const email = req.body.email;
+    const password = req.body.password;
+    const passwordConfirm = req.body.passwordConfirm;  
 
-        db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) =>{
+    db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) =>{
+        if(error){
+            console.log(error);
+        }
+        if(results.length > 0){
+            return res.render('register', {
+                message: 'That email has been taken',
+                successMessage: ''
+            });
+        } else if(!email_regex.test(String(email).toLowerCase())){
+            return res.render('register', {
+                message: 'Invalid email',
+                successMessage: ''
+            });
+        } else if(!pw_regex.test(String(password))){
+            return res.render('register', {
+                message: 'Password must 8 characters, include upper and lowercase letters, and at least on number',
+                successMessage: ''
+            });
+        } else if(password != passwordConfirm){
+            return res.render('register', {
+                message: 'Passwords do not match',
+                successMessage: ''
+            });
+        }
+
+        let hashedPassword = await bcrypt.hash(password, 8);
+        console.log(hashedPassword);
+
+        db.query('INSERT INTO users SET ?', {username: username, password: hashedPassword, email: email}, (error, results) =>{
             if(error){
                 console.log(error);
+            } else{
+                return res.redirect('/login');
             }
-            if(results.length > 0){
-                return res.render('register', {
-                    message: 'That email has been taken',
-                    successMessage: ''
-                });
-            } else if(!email_regex.test(String(email).toLowerCase())){
-                return res.render('register', {
-                    message: 'Invalid email',
-                    successMessage: ''
-                });
-            } else if(!pw_regex.test(String(password))){
-                return res.render('register', {
-                    message: 'Password must 8 characters, include upper and lowercase letters, and at least on number',
-                    successMessage: ''
-                });
-            } else if(password != passwordConfirm){
-                return res.render('register', {
-                    message: 'Passwords do not match',
-                    successMessage: ''
-                });
-            }
-
-            let hashedPassword = await bcrypt.hash(password, 8);
-            console.log(hashedPassword);
-
-            db.query('INSERT INTO users SET ?', {username: username, password: hashedPassword, email: email}, (error, results) =>{
-                if(error){
-                    console.log(error);
-                } else{
-                    return res.redirect('/login');
-                }
-            })
         })
+    })
 
-        
-    }
+    
 }
 
-function login() 
-{
-     async (req, res) => {
+exports.login = async (req, res) => {
     try {
         const email = req.body.email;
         const password = req.body.password;
@@ -337,11 +332,8 @@ function login()
         console.log(error);
     }
 } 
-}
 
-function isLoggedIn() 
-{
- async (req, res, next) => {
+exports.isLoggedIn = async (req, res, next) => {
     if(req.cookies.jwt){
         try {
             const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET);
@@ -372,11 +364,8 @@ function isLoggedIn()
         next();
     }
 }
-}
 
-function logout() 
-{
- async (req, res) => {    
+exports.logout= async (req, res) => {    
     res.cookie('jwt', 'logout', {
         expires: new Date(Date.now() + 2),
         httpOnly: true
@@ -384,10 +373,3 @@ function logout()
 
     res.status(200).redirect('/');
 }
-}
-
-app.use('/', require('./routes/pages'));
-
-app.use('/auth', require('./routes/auth'));
-
-
