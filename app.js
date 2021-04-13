@@ -192,7 +192,7 @@ app.get('/profiles', authController.isLoggedIn, (req, res) => {
 app.get('/mapData',  (req, res) => {
     var selectMarkers = 'select * from markers;';
 
-    db.task('get-everything', function (req, res) {
+    db.task('get-everything', task => {
         return task.batch([
             task.any(selectMarkers)
         ]);
@@ -216,7 +216,7 @@ app.get('/mapData',  (req, res) => {
 //need to rewrite according to lab7, has unexpected input error
     app.get('/parkData',  (req, res) => {
         var selectParkMark = 'select * from parkmark;';
-        db.task('get-everything', function (req, res) {
+        db.task('get-everything', task => {
             return task.batch([
                 task.any(selectParkMark)
             ]);
