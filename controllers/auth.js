@@ -54,7 +54,9 @@ exports.register = (req, res) => {
 
         let hashedPassword = await bcrypt.hash(password, 8);
         console.log(hashedPassword);
-
+        
+        //problem on line 60, we need to write the query outside the statement as a query string to fix this 
+        
         db.query('INSERT INTO users SET ?', {username: username, password: hashedPassword, email: email}, (error, results) =>{
             if(error){
                 console.log(error);
