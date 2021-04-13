@@ -7,6 +7,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const port = process.env.PORT || 3000;
 var pgp = require('pg-promise')();
+const authController = require('../controllers/auth');
 
 
 serv.listen(port, () => {
