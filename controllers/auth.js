@@ -5,25 +5,18 @@ const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))
 const pw_regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 const { promisify } = require('util');
 
-
-const { Client } = require('pg');
-
-const client = new Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false
-    }
-});
-
-client.connect();
-
-client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
-    if (err) throw err;
-    for (let row of res.rows) {
-        console.log(JSON.stringify(row));
-    }
-    client.end();
-});
+var pgp = require('pg-promise')();
+let dbConfig = { //these need to be our local configurations
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE,
+    multipleStatements: true
+};
+  
+const isProduction = process.env.NODE_ENV === 'production';
+dbConfig = isProduction ? process.env.DATABASE_URL : dbConfig;
+var db = pgp(dbConfig);
 
 exports.register = (req, res) => {
     console.log(req.body);
