@@ -49,4 +49,6 @@ db.query(createTable, function(error, results) {
         console.log(error);
     } 
 })
+app.use('/', require('./routes/pages'));
 
+app.use('/auth', require('./routes/auth'));
