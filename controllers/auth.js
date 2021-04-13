@@ -56,8 +56,8 @@ exports.register = (req, res) => {
         console.log(hashedPassword);
         
         //problem on line 60, we need to write the query outside the statement as a query string to fix this 
-        
-        db.query('INSERT INTO users SET ?', {username: username, password: hashedPassword, email: email}, (error, results) =>{
+        var insertQuery = "insert into users values('+ username + ',' + hashedPassword + ',' + email + ');";
+        db.query(insertQuery, (error, results) =>{
             if(error){
                 console.log(error);
             } else{
