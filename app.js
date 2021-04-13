@@ -140,7 +140,7 @@ router.get('/profile', isLoggedIn(), (req, res) => {
     
 })
 
-router.get('/editProfile', authController.isLoggedIn, (req, res) => {
+router.get('/editProfile', isLoggedIn(), (req, res) => {
     if(req.user){
         res.render('editProfile', {
             user: req.user
@@ -151,7 +151,7 @@ router.get('/editProfile', authController.isLoggedIn, (req, res) => {
     
 })
 
-router.post('/profile', authController.isLoggedIn, (req, res) => {
+router.post('/profile', isLoggedIn(), (req, res) => {
     var addProfile = 'insert into profiles values (';
     addProfile += req.user.id;
     addProfile += ', "';
