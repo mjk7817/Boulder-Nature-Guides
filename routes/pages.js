@@ -21,7 +21,7 @@ client.query('SELECT table_schema,table_name FROM information_schema.tables;', (
     }
     client.end();
 });
-
+var db = pgp(dbConfig);
 
 router.get('/', (req, res) => {
     res.render('index');
