@@ -191,24 +191,27 @@ app.get('/profiles', authController.isLoggedIn, (req, res) => {
 
 //need to rewrite according to lab 7
 app.get('/mapData',  (req, res) => {
-    async function userQuery(){
-         return new Promise((resolve,reject)=>{
-             db.query('select * from markers;', function(error,results,field){
-                     resolve(results);
-             });
- 
-         })
-     }
- 
-     async function resolveQueries(){
-         let data = await userQuery();
-         res.json(data);
-         
-     }
- 
-     resolveQueries();
-     
- })
+    var selectMarkers = 'select * from markers;';
+    
+    db.task('get-everything', function(req,res){
+        return task.batch([
+            task.any(selectMarkers)
+        ]);
+
+    })
+    .then(info => {
+        res.render('pages/mapData',{
+            my_title: "Map",
+            data: info[0]
+
+        })
+    })
+    .catch(err => {
+        console.log('error', err);
+        res.render('pages/mapData', {
+            data: ''
+        })
+    });
 
 //need to rewrite according to lab7
  app.get('/parkData',  (req, res) => {
