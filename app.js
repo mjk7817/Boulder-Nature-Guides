@@ -245,7 +245,7 @@ router.get('/mapData',  (req, res) => {
  })
 
 module.exports = router;
-/*
+
 function register() = (req, res) => {
     console.log(req.body);
 
@@ -373,7 +373,7 @@ function logout() = async (req, res) => {
 
     res.status(200).redirect('/');
 }
-*/
+
 
 app.use('/', require('./routes/pages'));
 
