@@ -13,11 +13,11 @@ var pgp = require('pg-promise')();
 
 const router = express.Router();
 
-router.post('/register', exports.register());
+router.post('/register', exports.register());//problem here
 
-router.post('/login', exports.login());
+router.post('/login', exports.login());//problem here
 
-router.get('/logout', exports.logout());
+router.get('/logout', exports.logout());//problem here
 
 module.exports = router;
 
