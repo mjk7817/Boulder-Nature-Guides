@@ -189,7 +189,7 @@ app.get('/profiles', authController.isLoggedIn, (req, res) => {
     
 })
 
-//need to rewrite according to lab 7
+//need to rewrite according to lab 7, has unexpected input error
 app.get('/mapData',  (req, res) => {
     var selectMarkers = 'select * from markers;';
     
@@ -213,7 +213,7 @@ app.get('/mapData',  (req, res) => {
         })
     })
 
-//need to rewrite according to lab7
+//need to rewrite according to lab7, has unexpected input error
  app.get('/parkData',  (req, res) => {
         var selectParkMark = 'select * from parkmark;';
         db.task('get-everything', function(req,res){
@@ -237,9 +237,5 @@ app.get('/mapData',  (req, res) => {
          
      })
 
-//module.exports = router;
 
-//app.use('/', require('./routes/pages'));
-//app.use('/auth', require('./routes/auth'));
-//module.exports = router ;
 
