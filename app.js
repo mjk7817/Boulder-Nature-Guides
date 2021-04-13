@@ -246,7 +246,7 @@ router.get('/mapData',  (req, res) => {
 
 module.exports = router;
 
-function register() = (req, res) => { //mark change: added async because that was literally the only thing different. 
+function register(req, res) {
     console.log(req.body);
 
     const username = req.body.username;
@@ -295,7 +295,7 @@ function register() = (req, res) => { //mark change: added async because that wa
     
 }
 
-function login() = async (req, res) => {
+async function login(req, res) {
     try {
         const email = req.body.email;
         const password = req.body.password;
@@ -333,7 +333,7 @@ function login() = async (req, res) => {
     }
 } 
 
-function isLoggedIn() = async (req, res, next) => {
+async function isLoggedIn(req, res, next) {
     if(req.cookies.jwt){
         try {
             const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET);
@@ -363,9 +363,9 @@ function isLoggedIn() = async (req, res, next) => {
     } else{
         next();
     }
-}
+};
 
-function logout() = async (req, res) => {    
+async function logout(req, res)  {    
     res.cookie('jwt', 'logout', {
         expires: new Date(Date.now() + 2),
         httpOnly: true
