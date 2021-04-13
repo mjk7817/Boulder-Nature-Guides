@@ -211,7 +211,7 @@ app.get('/mapData',  (req, res) => {
         res.render('pages/mapData', {
             data: ''
         })
-    });
+    })
 
 //need to rewrite according to lab7
  app.get('/parkData',  (req, res) => {
@@ -235,7 +235,7 @@ app.get('/mapData',  (req, res) => {
                 data: ''
             })
          
-     });
+     })
 
 //module.exports = router;
 
