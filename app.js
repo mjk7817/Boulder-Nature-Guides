@@ -222,7 +222,7 @@ app.get('/mapData',  (req, res) => {//broken
             ]);
 
         })
-            .then(info => {
+            .then(data => {
                 res.render('/app/views/map', {
                     my_title: "Map",
                     data: data[0]
