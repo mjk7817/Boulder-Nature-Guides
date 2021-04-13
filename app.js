@@ -246,7 +246,7 @@ router.get('/mapData',  (req, res) => {
 
 module.exports = router;
 
-function register() = (req, res) => {
+function register() = async(req, res) => { //mark change: added async because that was literally the only thing different. 
     console.log(req.body);
 
     const username = req.body.username;
