@@ -189,6 +189,7 @@ app.get('/profiles', authController.isLoggedIn, (req, res) => {
     
 })
 
+//need to rewrite according to lab 7
 app.get('/mapData',  (req, res) => {
     async function userQuery(){
          return new Promise((resolve,reject)=>{
@@ -209,6 +210,7 @@ app.get('/mapData',  (req, res) => {
      
  })
 
+//need to rewrite according to lab7
  app.get('/parkData',  (req, res) => {
     async function userQuery(){
          return new Promise((resolve,reject)=>{
