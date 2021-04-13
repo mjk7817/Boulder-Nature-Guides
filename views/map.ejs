@@ -28,31 +28,6 @@
         </div>
 
         <div id="mapDiv" style="width: 800px; height: 450px; margin-left: 320px; margin-top: 85px"></div>
-           
-
-            <!--
-                 <%
-                    if(mapPoint){
-                    var marker = '';
-                    mapPoint.forEach(function(item){
-                        map = L.map('mapDiv').setView([item.lat, item.lon], 13);
-                        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-                            maxZoom: 18,
-                            }).addTo(map);
-                            // add marker to the map
-                            marker = L.marker([item.lat, item.lon]).addTo(map);
-                            // add popup to the marker
-                            marker.bindPopup("<b>Boulder</b><br />Colorado");
-                            marker.on ('mouseover', function(event) {
-                                this.openPopup();
-                            });
-                            marker.on ('mouseout', function(event) {
-                                this.closePopup();
-                            });
-                    }); %>
-                    <%- marker %>
-               <% } %> -->
             
             
     </header>
