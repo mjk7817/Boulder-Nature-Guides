@@ -8,6 +8,8 @@ const cookieParser = require("cookie-parser");
 const port = process.env.PORT || 3000;
 var pgp = require('pg-promise')();
 const authController = require('./controllers/auth');
+const router = express.Router();
+
 
 
 serv.listen(port, () => {
@@ -50,15 +52,14 @@ db.query(createTable, function(error, results) {
         console.log(error);
     } 
 })
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
     res.render('index');
 })
 
-app.get('/register', (req, res) => {
+router.get('/register', (req, res) => {
     res.render('register', {message: '', successMessage: ''});
 })
-
-app.get('/login', authController.isLoggedIn, (req, res) => {
+router.get('/login', authController.isLoggedIn, (req, res) => {
     if(req.user){
         res.redirect('/profile');
     } else{
@@ -67,11 +68,11 @@ app.get('/login', authController.isLoggedIn, (req, res) => {
     
 })
 
-app.get('/contact', (req, res) => {
+router.get('/contact', (req, res) => {
     res.render('contact');
 })
 
-app.get('/map', function(req, res) {
+router.get('/map', function(req, res) {
     var trailheads;
     var parks;
 	//var color_choice = req.query.color_selection; // Investigate why the parameter is named "color_selection"
@@ -99,15 +100,15 @@ app.get('/map', function(req, res) {
 
 });
 
-app.get('/index', (req, res) => {
+router.get('/index', (req, res) => {
     res.render('index');
 })
 
-app.get('/resources', (req, res) => {
+router.get('/resources', (req, res) => {
     res.render('resources');
 })
 
-app.get('/profile', authController.isLoggedIn, (req, res) => {
+router.get('/profile', authController.isLoggedIn, (req, res) => {
     if(req.user && req.profile){
         res.render('profile', {
             user: req.user,
@@ -124,7 +125,7 @@ app.get('/profile', authController.isLoggedIn, (req, res) => {
     
 })
 
-app.get('/editProfile', authController.isLoggedIn, (req, res) => {
+router.get('/editProfile', authController.isLoggedIn, (req, res) => {
     if(req.user){
         res.render('editProfile', {
             user: req.user
@@ -135,7 +136,7 @@ app.get('/editProfile', authController.isLoggedIn, (req, res) => {
     
 })
 
-app.post('/profile', authController.isLoggedIn, (req, res) => {
+router.post('/profile', authController.isLoggedIn, (req, res) => {
     var addProfile = 'insert into profiles values (';
     addProfile += req.user.id;
     addProfile += ', "';
@@ -163,12 +164,12 @@ app.post('/profile', authController.isLoggedIn, (req, res) => {
     }
 })
 
-app.get('/browseProfiles', (req, res) => {
+router.get('/browseProfiles', (req, res) => {
         res.render('profileCards', {
     });
 })
 
-app.get('/profiles', authController.isLoggedIn, (req, res) => {
+router.get('/profiles', authController.isLoggedIn, (req, res) => {
    async function userQuery(){
         return new Promise((resolve,reject)=>{
             db.query('select * from profiles', function(error,results,field){
@@ -188,7 +189,7 @@ app.get('/profiles', authController.isLoggedIn, (req, res) => {
     
 })
 
-app.get('/mapData',  (req, res) => {
+router.get('/mapData',  (req, res) => {
     async function userQuery(){
          return new Promise((resolve,reject)=>{
              db.query('select * from markers', function(error,results,field){
@@ -208,7 +209,7 @@ app.get('/mapData',  (req, res) => {
      
  })
 
- app.get('/parkData',  (req, res) => {
+ router.get('/parkData',  (req, res) => {
     async function userQuery(){
          return new Promise((resolve,reject)=>{
              db.query('select * from parkmark', function(error,results,field){
@@ -231,5 +232,6 @@ app.get('/mapData',  (req, res) => {
 //module.exports = router;
 
 app.use('/', require('./routes/pages'));
-
 app.use('/auth', require('./routes/auth'));
+module.exports = router ;
+
